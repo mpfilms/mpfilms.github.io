@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP Films | Videography</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --ivory: #F9F8F4; --champagne: #C5A059; --dark: #1a1a1a; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--ivory); color: var(--dark); }
+        .serif { font-family: 'Playfair Display', serif; }
+        .text-champagne { color: var(--champagne); }
+        .bg-champagne { background-color: var(--champagne); }
+        .texture { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.03; z-index: 5; background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png"); }
+        .nav-glass { background-color: rgba(249, 248, 244, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 0, 0, 0.03); }
+        .lang-btn { cursor: pointer; transition: all 0.3s ease; opacity: 0.4; letter-spacing: 0.1em; }
+        .lang-btn.active { opacity: 1; color: var(--champagne); font-weight: 500; }
+        .fade-in { opacity: 0; animation: fadeIn ease 2.5s forwards; }
+        @keyframes fadeIn { 0% {opacity:0; transform: translateY(10px);} 100% {opacity:1; transform: translateY(0);} }
+        .video-placeholder { background-color: #000; position: relative; overflow: hidden; }
+        
+        /* Cookie Banner State */
+        #cookie-banner.hidden { display: none; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <div class="texture"></div>
+
+    <nav class="fixed top-0 w-full z-[100] nav-glass">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 md:py-6 flex justify-between items-center">
+            <a href="#inicio" class="serif text-xl tracking-tighter">MP FILMS<span class="text-champagne">.</span></a>
+            <div class="flex items-center space-x-4 md:space-x-12">
+                <div class="hidden lg:flex space-x-10">
+                    <a href="#inicio" data-i18n="nav_home" class="text-[10px] tracking-[0.4em] uppercase font-light hover:text-champagne transition">Inicio</a>
+                    <a href="#experience" data-i18n="nav_exp" class="text-[10px] tracking-[0.4em] uppercase font-light hover:text-champagne transition">Experiencia</a>
+                    <a href="#about" data-i18n="nav_about" class="text-[10px] tracking-[0.4em] uppercase font-light hover:text-champagne transition">Mi Visión</a>
+                    <a href="#paquetes" data-i18n="nav_packs" class="text-[10px] tracking-[0.4em] uppercase font-light hover:text-champagne transition">Paquetes</a>
+                    <a href="#contact" data-i18n="nav_contact" class="text-[10px] tracking-[0.4em] uppercase font-light hover:text-champagne transition">Contacto</a>
+                </div>
+                <div class="flex space-x-3 text-[9px] border-l border-gray-200 pl-4 md:pl-8 font-medium">
+                    <button onclick="changeLanguage('es')" id="btn-es" class="lang-btn active">ES</button>
+                    <button onclick="changeLanguage('de')" id="btn-de" class="lang-btn">DE</button>
+                    <button onclick="changeLanguage('en')" id="btn-en" class="lang-btn">EN</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="inicio" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <video autoplay muted loop playsinline class="absolute z-0 w-auto min-w-full min-h-full max-w-none opacity-30 grayscale">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-bride-and-groom-walking-in-the-forest-41133-large.mp4" type="video/mp4">
+        </video>
+        <div class="relative z-10 text-center px-6 fade-in">
+            <h1 class="serif text-5xl sm:text-7xl md:text-[11rem] leading-none mb-6 tracking-tighter">MP Films</h1>
+            <div class="flex items-center justify-center space-x-4 md:space-x-6">
+                <div class="h-[1px] w-8 md:w-12 bg-champagne/40"></div>
+                <h2 data-i18n="hero_sub" class="text-champagne tracking-[0.4em] md:tracking-[0.7em] text-[9px] md:text-xs font-light uppercase">Cinematografía de bodas</h2>
+                <div class="h-[1px] w-8 md:w-12 bg-champagne/40"></div>
+            </div>
+            <p data-i18n="hero_tag" class="mt-12 md:mt-20 text-gray-400 font-light italic serif text-xl md:text-2xl opacity-80 max-w-2xl mx-auto">Donde lo invisible se vuelve inolvidable</p>
+        </div>
+    </section>
+
+    <section id="experience" class="py-16 md:py-32 bg-[#0a0a0a] text-white relative z-10">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+            <div class="mb-16 md:mb-24 text-center">
+                <span data-i18n="exp_tag" class="text-champagne text-[10px] tracking-[0.5em] uppercase block mb-4">Trabajos Seleccionados</span>
+                <h2 data-i18n="nav_exp" class="serif text-5xl md:text-8xl italic">Experiencia</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+                <div class="group">
+                    <div class="relative aspect-video mb-6 md:mb-8 video-placeholder border border-white/5">
+                        <iframe class="w-full h-full opacity-70 group-hover:opacity-100 transition duration-700" src="https://player.vimeo.com/video/1159548288" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="flex justify-between items-end border-b border-white/10 pb-4">
+                        <h3 class="serif text-2xl md:text-3xl italic">Raul & Tati</h3>
+                        <span class="text-gray-500 text-[9px] md:text-[10px] tracking-widest uppercase">San Salvador, El Salvador</span>
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="relative aspect-video mb-6 md:mb-8 video-placeholder border border-white/5">
+                        <iframe class="w-full h-full opacity-70 group-hover:opacity-100 transition duration-700" src="https://player.vimeo.com/video/1158072046" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="flex justify-between items-end border-b border-white/10 pb-4">
+                        <h3 class="serif text-2xl md:text-3xl italic">Ädu & Sheila</h3>
+                        <span class="text-gray-500 text-[9px] md:text-[10px] tracking-widest uppercase">Huttwil, Suiza</span>
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="relative aspect-video mb-6 md:mb-8 video-placeholder border border-white/5">
+                        <iframe class="w-full h-full opacity-70 group-hover:opacity-100 transition duration-700" src="https://player.vimeo.com/video/1158086146" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="flex justify-between items-end border-b border-white/10 pb-4">
+                        <h3 class="serif text-2xl md:text-3xl italic">Villa Wenkenhof</h3>
+                        <span class="text-gray-500 text-[9px] md:text-[10px] tracking-widest uppercase">Basel, Suiza</span>
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="relative aspect-video mb-6 md:mb-8 video-placeholder border border-white/5">
+                        <iframe class="w-full h-full opacity-70 group-hover:opacity-100 transition duration-700" src="https://player.vimeo.com/video/1158076930" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="flex justify-between items-end border-b border-white/10 pb-4">
+                        <h3 class="serif text-2xl md:text-3xl italic">Margarita & Rafa</h3>
+                        <span class="text-gray-500 text-[9px] md:text-[10px] tracking-widest uppercase">Basel, Suiza</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 md:py-40 max-w-6xl mx-auto px-6 md:px-8 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
+            <div class="relative group order-2 md:order-1">
+                <div class="absolute -inset-4 border border-champagne/20 z-0"></div>
+                <div class="relative z-10 aspect-[3/4] video-placeholder grayscale group-hover:grayscale-0 transition duration-1000">
+                    <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-videographer-editing-a-video-4340-large.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <div class="space-y-6 md:space-y-10 order-1 md:order-2">
+                <span data-i18n="about_tag" class="text-champagne text-[10px] tracking-[0.5em] uppercase">Mi Visión</span>
+                <h2 data-i18n="about_title" class="serif text-4xl md:text-6xl leading-tight italic">Cada película es un legado artesanal.</h2>
+                <div class="h-[1px] w-20 bg-champagne"></div>
+                <div class="text-gray-600 font-light leading-relaxed space-y-4 md:space-y-6 text-base md:text-lg">
+                    <p data-i18n="about_p1">Algunas son impetuosas y llenas de vida, otras tranquilas y profundas – tan auténticas y vivas como las personas que filmo.</p>
+                    <p data-i18n="about_p2">Hay risas detrás del lente como delante – ¡y justo eso me motiva!</p>
+                    <p data-i18n="about_p3">Porque no quieres un video cualquiera, sino una historia cinematográfica de uno de los días más importantes de tu vida, genuina y auténtica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="paquetes" class="py-16 md:py-32 bg-zinc-50 relative z-10">
+        <div class="max-w-6xl mx-auto px-6 md:px-8">
+            <div class="text-center mb-16 md:mb-24">
+                <h2 data-i18n="nav_packs" class="serif text-5xl md:text-6xl italic">Paquetes</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                <div class="p-8 md:p-12 border-2 border-champagne bg-white shadow-2xl flex flex-col h-full">
+                    <div class="text-center mb-10">
+                        <h3 data-i18n="pack1_name" class="serif text-2xl mb-4 italic">Paquete Base</h3>
+                        <div class="text-champagne text-xs tracking-widest border-b border-champagne/20 pb-4 uppercase">CHF 997.-</div>
+                    </div>
+                    <div class="flex-grow">
+                        <p class="font-black text-[10px] uppercase mb-4" data-i18n="pack1_d1">Lo que está incluido</p>
+                        <ul class="text-gray-500 text-[10px] tracking-widest space-y-3 uppercase font-normal mb-8">
+                            <li data-i18n="pack1_d2">8 Horas de Cobertura</li>
+                            <li data-i18n="pack1_d3">Cobertura con dron en 4K (sujeto a clima y permisos)</li>
+                            <li data-i18n="pack1_d4">Grabación e integración de voces</li>
+                            <li class="font-black text-black pt-2" data-i18n="pack1_d5">Edición</li>
+                            <li data-i18n="pack1_d6">Trailer de 60 segundos</li>
+                            <li data-i18n="pack1_d7">Instagram Reel</li>
+                            <li data-i18n="pack1_d8">6 min. Highlights de la boda</li>
+                            <li class="font-black text-black pt-2" data-i18n="pack1_d9">Entrega</li>
+                            <li data-i18n="pack1_d10">Highlights de la boda (en el transcurso de 3 meses)</li>
+                            <li data-i18n="pack1_d11">Instagram Reel (en el transcurso de 7 días)</li>
+                            <li data-i18n="pack1_d12">Trailer (en el transcurso de 72 horas)</li>
+                            <li data-i18n="pack1_d13">Entrega en USB</li>
+                        </ul>
+                    </div>
+                    <div class="text-center mt-auto pt-8">
+                        <a href="#contact" data-i18n="pack_book" class="text-[10px] tracking-widest border-b border-dark pb-1 hover:bg-champagne transition uppercase">RESERVAR AHORA</a>
+                    </div>
+                </div>
+
+                <div class="p-8 md:p-12 border border-gray-200 bg-white shadow-sm flex flex-col h-full">
+                    <div class="text-center mb-10">
+                        <h3 data-i18n="pack2_name" class="serif text-2xl mb-4 italic">Extras</h3>
+                        <div class="text-gray-400 text-xs tracking-widest border-b border-gray-100 pb-4 uppercase" data-i18n="pack_custom">Personaliza tu experiencia</div>
+                    </div>
+                    <div class="flex-grow space-y-6">
+                        <ul class="text-gray-500 text-[10px] tracking-widest space-y-6 uppercase font-normal">
+                            <li data-i18n="pack2_d1">Horas extras de Cobertura CHF 150.-/hora</li>
+                            <li data-i18n="pack2_d2">Extra Highlights en la película de la boda CHF 100.-/min</li>
+                            <li data-i18n="pack2_d3">Sesión pre-boda CHF 150.-/hora</li>
+                            <li data-i18n="pack2_d4" class="italic text-gray-400 normal-case">Consúltanos por paquetes personalizados y ofertas especiales</li>
+                        </ul>
+                    </div>
+                    <div class="text-center mt-auto pt-8">
+                        <a href="#contact" data-i18n="pack_btn" class="text-[10px] tracking-widest border-b border-dark pb-1 hover:text-champagne transition uppercase">CONSULTAR</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 md:py-32 max-w-4xl mx-auto px-6 md:px-8 text-center relative z-10">
+        <h2 data-i18n="nav_contact" class="serif text-5xl md:text-6xl mb-12 md:mb-20 italic">Contacto</h2>
+        <form action="https://formspree.io/f/xpqrrqvz" method="POST" class="space-y-12 md:space-y-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+                <input type="text" name="nombre" data-i18n-holder="form_name" required class="bg-transparent border-b border-gray-200 py-4 focus:outline-none focus:border-champagne transition text-[10px] tracking-widest uppercase w-full">
+                <input type="email" name="email" data-i18n-holder="form_email" required class="bg-transparent border-b border-gray-200 py-4 focus:outline-none focus:border-champagne transition text-[10px] tracking-widest uppercase w-full">
+            </div>
+            <textarea name="mensaje" rows="4" data-i18n-holder="form_msg" class="w-full bg-transparent border-b border-gray-200 py-4 focus:outline-none focus:border-champagne transition text-[10px] tracking-widest uppercase"></textarea>
+            
+            <div class="flex flex-col items-center space-y-8">
+                <button type="submit" data-i18n="form_btn" class="group relative px-12 md:px-20 py-5 md:py-6 border border-black hover:text-white transition-all duration-500 overflow-hidden uppercase text-[10px] tracking-[0.5em] w-full md:w-auto">
+                    <div class="absolute inset-0 w-0 bg-black transition-all duration-500 group-hover:w-full"></div>
+                    <span class="relative">Enviar Solicitud</span>
+                </button>
+                
+                <a href="https://wa.me/41772651040" target="_blank" class="text-champagne serif italic tracking-widest text-lg hover:opacity-70 transition duration-300">
+                    <span data-i18n="contact_whatsapp">WhatsApp directo</span>
+                </a>
+            </div>
+        </form>
+    </section>
+
+    <section id="agb" class="py-16 md:py-24 max-w-5xl mx-auto px-6 md:px-8 border-t border-gray-100 relative z-10 bg-white/50">
+        <h2 data-i18n="agb_title" class="serif text-3xl md:text-4xl mb-12 italic text-center">Allgemeine Geschäftsbedingungen (AGB)</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 text-gray-500 font-light leading-relaxed">
+            <div class="space-y-8">
+                <div>
+                    <h3 data-i18n="agb_h1" class="serif text-dark text-lg mb-2 italic">1. Geltungsbereich</h3>
+                    <p data-i18n="agb_p1" class="text-[10px] tracking-wider uppercase leading-loose"></p>
+                </div>
+                <div>
+                    <h3 data-i18n="agb_h2" class="serif text-dark text-lg mb-2 italic">2. Vertragsabschluss</h3>
+                    <p data-i18n="agb_p2" class="text-[10px] tracking-wider uppercase leading-loose"></p>
+                </div>
+                <div>
+                    <h3 data-i18n="agb_h3" class="serif text-dark text-lg mb-2 italic">3. Leistungen</h3>
+                    <p data-i18n="agb_p3" class="text-[10px] tracking-wider uppercase leading-loose"></p>
+                </div>
+                <div>
+                    <h3 data-i18n="agb_h4" class="serif text-dark text-lg mb-2 italic">4. Vergütung</h3>
+                    <p data-i18n="agb_p4" class="text-[10px] tracking-wider uppercase leading-loose"></p>
+                </div>
+            </div>
+            <div class="space-y-8">
+                <div>
+                    <h3 data-i18n="agb_h5" class="serif text-dark text-lg mb-2 italic">5. Urheberrecht & Nutzungsrechte</h3>
+                    <p data-i18n="agb_p5" class="text-[10px] tracking-wider uppercase leading-loose"></p>
+                </div>
+                <div>
+                    <h3 data-i18n="agb_h6" class="serif text-dark text-lg mb-2 italic">6. Haftung</h3>
+                    <p data-i18n="agb_p6" class="text-[10px] tracking-wider uppercase leading-loose"></p>
+                </div>
+                <div>
+                    <h3 data-i18n="agb_h7" class="serif text-dark text-lg mb-2 italic">7. Datenschutz</h3>
+                    <p data-i18n="agb_p7" class="text-[10px] tracking-wider uppercase leading-loose"></p>
+                </div>
+                <div>
+                    <h3 data-i18n="agb_h8" class="serif text-dark text-lg mb-2 italic">8. Anwendbares Recht</h3>
+                    <p data-i18n="agb_p8" class="text-[10px] tracking-wider uppercase leading-loose font-medium text-dark"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center opacity-30 text-[8px] tracking-[0.6em] uppercase flex flex-col space-y-2 px-6">
+        <span>&copy; 2026 MP FILMS</span>
+        <span data-i18n="footer_legal">4950 HUTTWIL, SUIZA | CENTROAMÉRICA</span>
+    </footer>
+
+    <div id="cookie-banner" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[200] w-[90%] max-w-md nav-glass p-6 border border-gray-100 shadow-2xl flex flex-col items-center text-center hidden">
+        <p data-i18n="cookie_msg" class="text-[9px] tracking-widest uppercase mb-4 text-gray-500 leading-relaxed"></p>
+        <button onclick="acceptCookies()" class="text-[9px] tracking-[0.3em] uppercase border-b border-champagne text-champagne hover:text-dark hover:border-dark transition font-bold italic">
+            <span data-i18n="cookie_btn">ACEPTAR</span>
+        </button>
+    </div>
+
+<script>
+    const translations = {
+        es: {
+            nav_home: "Inicio", nav_exp: "Experiencia", nav_about: "Mi Visión", nav_packs: "Paquetes", nav_contact: "Contacto",
+            hero_sub: "Cinematografía de Bodas", hero_tag: "Donde lo invisible se vuelve inolvidable",
+            exp_tag: "Trabajos Seleccionados", about_tag: "Mi Visión",
+            about_title: "Cada película es un legado artesanal.",
+            about_p1: "Algunas son impetuosas y llenas de vida, otras tranquilas y profundas – tan auténticas y vivas como las personas que filmo.",
+            about_p2: "Hay risas detrás del lente como delante – ¡y justo eso me motiva!",
+            about_p3: "Porque no quieres un video cualquiera, sino una historia cinematográfica de uno de los días más importantes de tu vida, genuina y auténtica.",
+            pack1_name: "Paquete Base", pack2_name: "Extras",
+            pack_btn: "CONSULTAR", pack_book: "RESERVAR AHORA", pack_custom: "Personaliza tu experiencia",
+            pack1_d1: "Lo que está incluido", pack1_d2: "8 Horas de Cobertura", pack1_d3: "Dron en 4K (sujeto a clima y permisos)", 
+            pack1_d4: "Grabación e integración de voces", pack1_d5: "Edición", pack1_d6: "Trailer de 60 seg", 
+            pack1_d7: "Instagram Reel", pack1_d8: "6 min. Highlights de la boda", pack1_d9: "Entrega", 
+            pack1_d10: "Highlights de la boda (en el transcurso de 3 meses)", pack1_d11: "Instagram Reel (en el transcurso de 7 días)", pack1_d12: "Trailer (en el transcurso de 72 horas)", pack1_d13: "Entrega en USB",
+            pack2_d1: "Horas extras de cobertura CHF 150.-/hora", pack2_d2: "Extra Highlights en la película de la boda CHF 100.-/min", 
+            pack2_d3: "Sesión pre-boda CHF 150.-/hora", pack2_d4: "Consúltanos por paquetes personalizados y ofertas especiales",
+            form_name: "NOMBRE", form_email: "EMAIL", form_msg: "DETALLES DEL EVENTO", form_btn: "ENVIAR SOLICITUD",
+            footer_legal: "4950 HUTTWIL, SUIZA | CENTROAMÉRICA",
+            cookie_msg: "Utilizamos cookies para asegurar la mejor experiencia cinematográfica.",
+            cookie_btn: "ACEPTAR",
+            agb_title: "Términos y Condiciones (AGB)",
+            agb_h1: "1. Ámbito de aplicación", agb_p1: "Estos términos y condiciones generales se aplican a todos los contratos entre el videografo (persona privada) y el cliente para servicios de videografía.",
+            agb_h2: "2. Conclusión del contrato", agb_p2: "Un contrato se concluye mediante confirmación por escrito (correo electrónico, mensajería) o mediante la aceptación de una oferta.",
+            agb_h3: "3. Servicios", agb_p3: "El alcance de los servicios resulta del acuerdo individual. Las solicitudes de cambio después de la conclusión del contrato pueden incurrir en costos adicionales.",
+            agb_h4: "4. Remuneración", agb_p4: "La remuneración acordada vence tras la facturación. En caso de cancelación a corto plazo, pueden surgir costos de cancelación.",
+            agb_h5: "5. Derechos de autor", agb_p5: "Todo el contenido creado está sujeto a derechos de autor. El cliente recibe un derecho simple de uso para el propósito acordado. La transferencia o uso comercial requiere consentimiento por escrito.",
+            agb_h6: "6. Responsabilidad", agb_p6: "El videografo solo es responsable en caso de dolo o negligencia grave. No se asume responsabilidad por fallas técnicas o fuerza mayor.",
+            agb_h7: "7. Privacidad", agb_p7: "Los datos personales se tratan de forma confidencial y se utilizan exclusivamente para la ejecución del contrato.",
+            agb_h8: "8. Ley aplicable", agb_p8: "Se aplica la ley suiza. 4950 Huttwil, Suiza. Para clientes de Centroamérica, se aplican adicionalmente las regulaciones locales obligatorias.",
+            contact_whatsapp: "WhatsApp directo"
+        },
+        en: {
+            nav_home: "Home", nav_exp: "Experience", nav_about: "My Vision", nav_packs: "Packages", nav_contact: "Contact",
+            hero_sub: "Wedding Cinematography", hero_tag: "Where the unseen becomes unforgettable",
+            exp_tag: "Selected Works", about_tag: "My Vision",
+            about_title: "Each film is a handcrafted legacy.",
+            about_p1: "Some are impetuous and full of life, others quiet and deep – as authentic as the people I film.",
+            about_p2: "There's laughter behind the lens as much as in front – and that’s exactly what moves me!",
+            about_p3: "Because you don't want just any video, but a genuine and authentic cinematic story of your big day.",
+            pack1_name: "Base Package", pack2_name: "Add-ons",
+            pack_btn: "INQUIRE", pack_book: "BOOK NOW", pack_custom: "Customize your experience",
+            pack1_d1: "What's included", pack1_d2: "8 Hours of Coverage", pack1_d3: "4K Drone (subject to weather and permits)", 
+            pack1_d4: "Voice recording and integration", pack1_d5: "Editing", pack1_d6: "60s Wedding Trailer", 
+            pack1_d7: "Instagram Reel", pack1_d8: "6 min. Wedding Highlights", pack1_d9: "Delivery", 
+            pack1_d10: "Wedding Highlights (within 3 months)", pack1_d11: "Instagram Reel (within 7 days)", pack1_d12: "Trailer (within 72 hours)", pack1_d13: "Delivery on USB",
+            pack2_d1: "Extra hours of coverage CHF 150.-/hour", pack2_d2: "Extra Highlights in the wedding film CHF 100.-/min.", 
+            pack2_d3: "Pre-wedding session CHF 150.-/hour", pack2_d4: "Contact us for custom packages and special offers",
+            form_name: "NAME", form_email: "EMAIL", form_msg: "EVENT DETAILS", form_btn: "SEND REQUEST",
+            footer_legal: "4950 HUTTWIL, SWITZERLAND | CENTRAL AMERICA",
+            cookie_msg: "We use cookies to ensure the best cinematic experience.",
+            cookie_btn: "ACCEPT",
+            agb_title: "General Terms & Conditions (T&C)",
+            agb_h1: "1. Scope", agb_p1: "These terms and conditions apply to all contracts between the videographer (private individual) and the client for videography services.",
+            agb_h2: "2. Conclusion of contract", agb_p2: "A contract is concluded by written confirmation (email, messenger) or by acceptance of an offer.",
+            agb_h3: "3. Services", agb_p3: "The scope of services results from the individual agreement. Changes after the conclusion may incur additional costs.",
+            agb_h4: "4. Compensation", agb_p4: "Agreed compensation is due after invoicing. Short-term cancellations may incur cancellation fees.",
+            agb_h5: "5. Copyright", agb_p5: "All content created is subject to copyright. Client receives simple usage rights for the agreed purpose. Commercial use requires written consent.",
+            agb_h6: "6. Liability", agb_p6: "The videographer is only liable in case of intent or gross negligence. No liability for technical failures or force majeure.",
+            agb_h7: "7. Privacy", agb_p7: "Personal data is treated confidentially and used exclusively for contract fulfillment.",
+            agb_h8: "8. Applicable Law", agb_p8: "Swiss law applies. 4950 Huttwil, Switzerland. For Central American clients, mandatory local regulations also apply.",
+            contact_whatsapp: "Direct WhatsApp"
+        },
+        de: {
+            nav_home: "Startseite", nav_exp: "Portfolio", nav_about: "Meine Vision", nav_packs: "Pakete", nav_contact: "Kontakt",
+            hero_sub: "Hochzeitsvideografie", hero_tag: "Wo das Unsichtbare unvergesslich wird",
+            exp_tag: "Ausgewählte Arbeiten", about_tag: "Meine Vision",
+            about_title: "Jeder Film ist ein handgefertigtes Vermächtnis.",
+            about_p1: "Manche sind temperamentvoll und voller Leben, andere ruhig und tiefgründig – so authentisch wie die Menschen, die ich filme.",
+            about_p2: "Hinter der Kamera wird genauso viel gelacht wie davor – und genau das motiviert mich!",
+            about_p3: "Denn du möchtest kein beliebiges Video, sondern eine echte filmische Geschichte deines grossen Tages.",
+            pack1_name: "Basispaket", pack2_name: "Extras",
+            pack_btn: "ANFRAGEN", pack_book: "JETZT BUCHEN", pack_custom: "Personalisiere dein Erlebnis",
+            pack1_d1: "Was enthalten ist", pack1_d2: "8 Stunden Begleitung", pack1_d3: "Drohneaufnahmen in 4K (abhängig vom Wetter und der Erlaubnis)", 
+            pack1_d4: "Tonaufnahmen und Integration von Stimmen", pack1_d5: "Schnitt und Bearbeitung", pack1_d6: "60s Trailer", 
+            pack1_d7: "Instagram Reel", pack1_d8: "6 Min. Hochzeits-Highlights", pack1_d9: "Lieferung", 
+            pack1_d10: "Hochzeits-Highlights (innerhalb von 3 Monaten)", pack1_d11: "Instagram Reel (innerhalb von 7 Tagen)", pack1_d12: "Trailer (innerhalb von 72 Stunden)",pack1_d13: "Übergabe als USB-Stick",
+            pack2_d1: "Zusätzliche Stunden CHF 150.-/Std", pack2_d2: "Zusätzliche Hochzeits-Highlights im Film CHF 100.-/Std", 
+            pack2_d3: "Pre-Wedding Shooting CHF 150.-/Std", pack2_d4: "Kontaktiere uns für individuelle Pakete und spezielle Angebote",
+            form_name: "NAME", form_email: "E-MAIL", form_msg: "DETAILS ZUM EVENT", form_btn: "ANFRAGE SENDEN",
+            footer_legal: "4950 HUTTWIL, SCHWEIZ | ZENTRALAMERIKA",
+            cookie_msg: "Wir verwenden Cookies, um Ihr Erlebnis zu verbessern.",
+            cookie_btn: "AKZEPTIEREN",
+            agb_title: "Allgemeine Geschäftsbedingungen (AGB)",
+            agb_h1: "1. Geltungsbereich", agb_p1: "Diese Bedingungen gelten für alle Verträge zwischen dem Videografen (Privatperson) und dem Auftraggeber über videografische Dienstleistungen.",
+            agb_h2: "2. Vertragsabschluss", agb_p2: "Ein Vertrag kommt durch schriftliche Bestätigung (E-Mail, Messenger) oder durch Annahme eines Angebots zustande.",
+            agb_h3: "3. Leistungen", agb_p3: "Der Umfang ergibt sich aus der individuellen Vereinbarung. Änderungswünsche nach Abschluss können Zusatzkosten verursachen.",
+            agb_h4: "4. Vergütung", agb_p4: "Die Vergütung ist nach Rechnungsstellung fällig. Bei kurzfristiger Absage können Ausfallkosten entstehen.",
+            agb_h5: "5. Urheberrecht", agb_p5: "Erstellte Inhalte unterliegen dem Urheberrecht. Der Auftraggeber erhält einfache Nutzungsrechte. Gewerbliche Nutzung bedarf der Zustimmung.",
+            agb_h6: "6. Haftung", agb_p6: "Haftung nur bei Vorsatz oder grober Fahrlässigkeit. Keine Haftung für technische Ausfälle oder höhere Gewalt.",
+            agb_h7: "7. Datenschutz", agb_p7: "Daten werden vertraulich behandelt und ausschließlich zur Vertragsabwicklung verwendet.",
+            agb_h8: "8. Recht", agb_p8: "Es gilt Schweizer Recht. 4950 Huttwil, Schweiz. Für Kunden aus Zentralamerika gelten lokale Vorschriften zusätzlich.",
+            contact_whatsapp: "Direkt per WhatsApp"
+        }
+    };
+
+    function changeLanguage(lang) {
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        const activeBtn = document.getElementById(`btn-${lang}`);
+        if(activeBtn) activeBtn.classList.add('active');
+        
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang] && translations[lang][key]) el.innerText = translations[lang][key];
+        });
+        document.querySelectorAll('[data-i18n-holder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-holder');
+            if (translations[lang] && translations[lang][key]) el.placeholder = translations[lang][key];
+        });
+        localStorage.setItem('lang', lang);
+    }
+
+    function acceptCookies() {
+        localStorage.setItem('cookies_accepted', 'true');
+        document.getElementById('cookie-banner').classList.add('hidden');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        changeLanguage(localStorage.getItem('lang') || 'es');
+        if (localStorage.getItem('cookies_accepted')) {
+            document.getElementById('cookie-banner').classList.add('hidden');
+        } else {
+            document.getElementById('cookie-banner').classList.remove('hidden');
+        }
+    });
+</script>
+</body>
+</html>
