@@ -1,0 +1,87 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "tailwindcss";
+
+:root {
+    --ivory: #F9F8F4;
+    --champagne: #C5A059;
+    --dark: #1a1a1a;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--ivory);
+    color: var(--dark);
+}
+
+.serif {
+    font-family: 'Playfair Display', serif;
+}
+
+.text-champagne {
+    color: var(--champagne);
+}
+
+.bg-champagne {
+    background-color: var(--champagne);
+}
+
+.texture {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.03;
+    z-index: 5;
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+}
+
+.nav-glass {
+    background-color: rgba(249, 248, 244, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.lang-btn {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.4;
+    letter-spacing: 0.1em;
+}
+
+.lang-btn.active {
+    opacity: 1;
+    color: var(--champagne);
+    font-weight: 500;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn ease 2.5s forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.video-placeholder {
+    background-color: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Cookie Banner State */
+#cookie-banner.hidden {
+    display: none;
+}
