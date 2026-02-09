@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, HostListener, signal } from '@angular/core';
+import { AfterViewInit, Component, OnInit, HostListener, signal } from '@angular/core';
 import { PageTexts } from '../interfaces/interfaces';
 
 @Component({
@@ -6,9 +6,12 @@ import { PageTexts } from '../interfaces/interfaces';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App implements AfterViewInit {
+export class App implements OnInit, AfterViewInit {
+  // Propiedades públicas para acceso desde el HTML
+  public showCookieBanner: boolean = false;
   protected readonly title = signal('mpfilms');
 
+  // Diccionario de traducciones (Mantenido íntegro para GEO)
   private readonly translations: { [key: string]: PageTexts } = {
     es: {
       nav_home: "Inicio", nav_exp: "Experiencia", nav_about: "Mi Visión", nav_packs: "Paquetes", nav_contact: "Contacto",
@@ -95,7 +98,7 @@ export class App implements AfterViewInit {
       agb_title: "Allgemeine Geschäftsbedingungen (AGB)",
       agb_h1: "1. Geltungsbereich", agb_p1: "Diese Bedingungen gelten für alle Verträge zwischen dem Videografen (Privatperson) und dem Auftraggeber über videografische Dienstleistungen.",
       agb_h2: "2. Vertragsabschluss", agb_p2: "Ein Vertrag kommt durch schriftliche Bestätigung (E-Mail, Messenger) oder durch Annahme eines Angebots zustande.",
-      agb_h3: "3. Leistungen", agb_p3: "Der Umfang ergibt sich aus der individuellen Vereinbarung. Änderungswünsche nach Abschluss können Zusatzkosten verursachen.",
+      agb_h3: "3. Leistungen", agb_p3: "Der Umfang ergibt sich aus de individuellen Vereinbarung. Änderungswünsche nach Abschluss können Zusatzkosten verursachen.",
       agb_h4: "4. Vergütung", agb_p4: "Die Vergütung ist nach Rechnungsstellung fällig. Bei kurzfristiger Absage können Ausfallkosten entstehen.",
       agb_h5: "5. Urheberrecht", agb_p5: "Erstellte Inhalte unterliegen dem Urheberrecht. Der Auftraggeber erhält einfache Nutzungsrechte. Gewerbliche Nutzung bedarf der Zustimmung.",
       agb_h6: "6. Haftung", agb_p6: "Haftung nur bei Vorsatz oder grober Fahrlässigkeit. Keine Haftung für technische Ausfälle oder höhere Gewalt.",
@@ -105,67 +108,76 @@ export class App implements AfterViewInit {
     }
   };
 
-  public ngAfterViewInit() {
-    this.changeLanguage(localStorage.getItem('lang') || 'de');
-    if (localStorage.getItem('cookies_accepted')) {
-      document.getElementById('cookie-banner')?.classList.add('hidden');
-    } else {
-      document.getElementById('cookie-banner')?.classList.remove('hidden');
-    }
+  constructor() {}
+
+  ngOnInit() {
+    // Verificamos cookies al iniciar
+    const accepted = localStorage.getItem('cookies_accepted');
+    this.showCookieBanner = !accepted;
   }
 
-  protected changeLanguage(lang: string) {
-    // Cambio de atributo semántico del documento (Vital para SEO/IA)
+  ngAfterViewInit() {
+    // Aplicamos idioma guardado
+    this.changeLanguage(localStorage.getItem('lang') || 'de');
+    this.initLazyLoading();
+  }
+
+  public changeLanguage(lang: string) {
     document.documentElement.setAttribute('lang', lang);
     document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    
     const activeBtn = document.getElementById(`btn-${lang}`);
     if (activeBtn) activeBtn.classList.add('active');
   
     document.querySelectorAll('[data-i18n]').forEach((el: Element) => {
       const key = el.getAttribute('data-i18n');
       const htmlElement = el as HTMLElement;
-      const property: keyof PageTexts = key as keyof PageTexts;
-      if (property !== null && this.translations[lang] && this.translations[lang][property]) htmlElement.innerText = this.translations[lang][property];
+      const property = key as keyof PageTexts;
+      if (property && this.translations[lang] && this.translations[lang][property]) {
+        htmlElement.innerText = this.translations[lang][property] as string;
+      }
     });
 
     document.querySelectorAll('[data-i18n-holder]').forEach(el => {
       const key = el.getAttribute('data-i18n-holder');
       const htmlElement = el as HTMLInputElement;
-      const property: keyof PageTexts = key as keyof PageTexts;
-      if (property !== null && this.translations[lang] && this.translations[lang][property]) htmlElement.placeholder = this.translations[lang][property];
+      const property = key as keyof PageTexts;
+      if (property && this.translations[lang] && this.translations[lang][property]) {
+        htmlElement.placeholder = this.translations[lang][property] as string;
+      }
     });
 
     localStorage.setItem('lang', lang);
   }
-  @HostListener("document:DOMContentLoaded")
-  protected onDOMContentLoaded() {
-  const iframes = document.querySelectorAll('iframe');
-  const videoItems = document.querySelectorAll('iframe');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const iframe = entry.target;
-        const src = iframe.getAttribute('src');
-        if (src === null || src === '') {
-          // Lógica para cargar src solo cuando es visible
-        }
-    };
-  }, { threshold: 0.25 });
 
-  iframes.forEach(iframe => {
-    // Mover src a data-src para evitar carga inicial pesada
-    const currentSrc = iframe.getAttribute('src');
-    if (currentSrc) {
-      iframe.setAttribute('data-src', currentSrc);
-      iframe.setAttribute('src', '');
-      observer.observe(iframe);
-    }
-    });
-  videoItems.forEach(item => observer.observe(item));
+  public acceptCookies() {
+    localStorage.setItem('cookies_accepted', 'true');
+    this.showCookieBanner = false;
   }
 
-  protected acceptCookies() {
-    localStorage.setItem('cookies_accepted', 'true');
-    document.getElementById('cookie-banner')?.classList.add('hidden');
+  private initLazyLoading() {
+    const iframes = document.querySelectorAll('iframe');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const iframe = entry.target as HTMLIFrameElement;
+          const dataSrc = iframe.getAttribute('data-src');
+          if (dataSrc) {
+            iframe.setAttribute('src', dataSrc);
+            iframe.removeAttribute('data-src');
+          }
+          observer.unobserve(iframe);
+        }
+      });
+    }, { threshold: 0.25 });
+
+    iframes.forEach(iframe => {
+      const currentSrc = iframe.getAttribute('src');
+      if (currentSrc && currentSrc !== '') {
+        iframe.setAttribute('data-src', currentSrc);
+        iframe.setAttribute('src', '');
+        observer.observe(iframe);
+      }
+    });
   }
 }
