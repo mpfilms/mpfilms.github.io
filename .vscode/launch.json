@@ -16,5 +16,14 @@
       "preLaunchTask": "npm: test",
       "url": "http://localhost:9876/debug.html"
     }
+    ,
+    {
+      "name": "Attach to Node (SSR)",
+      "type": "pwa-node",
+      "request": "attach",
+      "port": 9229,
+      "preLaunchTask": "npm: start",
+      "description": "Attach debugger to SSR server when running `npm run serve:ssr:mpfilms` with --inspect"
+    }
   ]
 }

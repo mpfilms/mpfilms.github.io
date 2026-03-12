@@ -7,6 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "lint": "eslint --ext .ts,.js src/ --fix",
+    "format": "prettier --write \"src/**/*.{ts,js,html,css,scss}\"",
     "github-build": "ng build --configuration production --base-href '/'",
     "deploy": "ng deploy --base-href=/",
     "serve:ssr:mpfilms": "node dist/server/server.mjs"
