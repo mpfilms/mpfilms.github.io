@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, OnInit, HostListener, signal } from '@angular/core';
+import { AfterViewInit, Component, OnInit, signal, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { PageTexts } from '../interfaces/interfaces';
 
 @Component({
@@ -108,27 +109,31 @@ export class App implements OnInit, AfterViewInit {
     }
   };
 
-  constructor() {}
+  constructor(@Inject(PLATFORM_ID) private platformId: object) { }
 
   ngOnInit() {
     // Verificamos cookies al iniciar
-    const accepted = localStorage.getItem('cookies_accepted');
-    this.showCookieBanner = !accepted;
+    if (isPlatformBrowser(this.platformId)) {
+      const accepted = localStorage.getItem('cookies_accepted');
+      this.showCookieBanner = !accepted;
+    }
   }
 
   ngAfterViewInit() {
     // Aplicamos idioma guardado
-    this.changeLanguage(localStorage.getItem('lang') || 'de');
+    if (isPlatformBrowser(this.platformId)) {
+      this.changeLanguage(localStorage.getItem('lang') || 'de');
+    }
     this.initLazyLoading();
   }
 
   public changeLanguage(lang: string) {
     document.documentElement.setAttribute('lang', lang);
     document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-    
+
     const activeBtn = document.getElementById(`btn-${lang}`);
     if (activeBtn) activeBtn.classList.add('active');
-  
+
     document.querySelectorAll('[data-i18n]').forEach((el: Element) => {
       const key = el.getAttribute('data-i18n');
       const htmlElement = el as HTMLElement;
@@ -147,15 +152,21 @@ export class App implements OnInit, AfterViewInit {
       }
     });
 
-    localStorage.setItem('lang', lang);
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('lang', lang);
+    }
   }
 
   public acceptCookies() {
-    localStorage.setItem('cookies_accepted', 'true');
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('cookies_accepted', 'true');
+    }
     this.showCookieBanner = false;
   }
 
   private initLazyLoading() {
+    if (!isPlatformBrowser(this.platformId)) return;
+
     const iframes = document.querySelectorAll('iframe');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
