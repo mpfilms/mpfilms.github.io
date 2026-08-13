@@ -1,6 +1,7 @@
 export interface PageTexts {
     nav_home: string;
-    nav_exp: string;
+    nav_exp_bodas: string;
+    nav_exp_studio: string;
     nav_about: string;
     nav_packs: string;
     nav_contact: string;
@@ -14,6 +15,10 @@ export interface PageTexts {
     about_p1: string;
     about_p2: string;
     about_p3: string;
+    about_studio_title: string;
+    about_studio_p1: string;
+    about_studio_p2: string;
+    about_studio_p3: string;
     inv_tag: string;
     inv_title: string;
     inv_desc: string;

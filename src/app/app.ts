@@ -10,25 +10,29 @@ import { PageTexts } from '../interfaces/interfaces';
   styleUrl: './app.css'
 })
 export class App implements OnInit, AfterViewInit {
-  // Propiedades públicas para el HTML
   public showCookieBanner: boolean = false;
   public showAgbAccordion: boolean = false;
-  public activeBranch: string = 'all';
+
+  // Hard Gate Init: Se inicializa en 'none' para ocultar el resto del sitio web
+  public activeBranch: string = 'none';
 
   protected readonly title = signal('mpfilms');
 
-  // Diccionario de traducciones completo (EN por defecto + ES y DE)
   private readonly translations: { [key: string]: PageTexts } = {
     en: {
-      nav_home: "Home", nav_exp: "Experience", nav_about: "My Vision", nav_packs: "Investment", nav_contact: "Contact",
+      nav_home: "Home", nav_exp_bodas: "Experience Weddings", nav_exp_studio: "Experience Studio", nav_about: "My Vision", nav_packs: "Investment", nav_contact: "Contact",
       hero_sub: "Swiss Cinematic Legacy & Commercial Studio", hero_tag: "Where the unseen becomes unforgettable",
-      btn_bodas: "WEDDINGS", btn_studio: "STUDIO",
+      btn_bodas: "EXPERIENCE WEDDINGS", btn_studio: "EXPERIENCE STUDIO",
       exp_tag: "Selected Works",
       about_tag: "My Vision",
       about_title: "Each film is a handcrafted legacy.",
       about_p1: "Some are impetuous and full of life, others quiet and deep – as authentic as the people I film.",
       about_p2: "There's laughter behind the lens as much as in front – and that’s exactly what moves me!",
       about_p3: "Because you don't want just any video, but a genuine and authentic cinematic story of your big day.",
+      about_studio_title: "Your Brand, Elevated.",
+      about_studio_p1: "Behind every cinematic shot and every drone flight, there is a true alliance.",
+      about_studio_p2: "As husband and wife and business partners, we merge technical precision with creative direction to ensure your space looks as majestic on screen as it does in real life.",
+      about_studio_p3: "We are not just camera operators; we are the visual allies of your business.",
       inv_tag: "Exclusive Experience",
       inv_title: "Availability & Investment",
       inv_desc: "We accept a limited number of commissions per year across Switzerland, El Salvador and worldwide to guarantee handcrafted cinematic dedication.",
@@ -52,15 +56,19 @@ export class App implements OnInit, AfterViewInit {
       contact_whatsapp: "Direct WhatsApp"
     },
     es: {
-      nav_home: "Inicio", nav_exp: "Experiencia", nav_about: "Mi Visión", nav_packs: "Inversión", nav_contact: "Contacto",
+      nav_home: "Inicio", nav_exp_bodas: "Experiencia Bodas", nav_exp_studio: "Experiencia Studio", nav_about: "Mi Visión", nav_packs: "Inversión", nav_contact: "Contacto",
       hero_sub: "Cinematografía de Bodas & Estudio Comercial", hero_tag: "Donde lo invisible se vuelve inolvidable",
-      btn_bodas: "BODAS", btn_studio: "STUDIO",
+      btn_bodas: "EXPERIENCIA BODAS", btn_studio: "EXPERIENCIA STUDIO",
       exp_tag: "Trabajos Seleccionados",
       about_tag: "Mi Visión",
       about_title: "Cada película es un legado artesanal.",
       about_p1: "Algunas son impetuosas y llenas de vida, otras tranquilas y profundas – tan auténticas y vivas como las personas que filmo.",
       about_p2: "Hay risas detrás del lente como delante – ¡y justo eso me motiva!",
       about_p3: "Porque no quieres un video cualquiera, sino una historia cinematográfica de uno de los días más importantes de tu vida, genuina y auténtica.",
+      about_studio_title: "Tu Marca, Elevada.",
+      about_studio_p1: "Detrás de cada toma cinematográfica y cada vuelo de dron, hay una alianza.",
+      about_studio_p2: "Como esposos y socios, unimos la precisión técnica con la dirección creativa para asegurarnos de que tu espacio se vea tan majestuoso en pantalla como en la vida real.",
+      about_studio_p3: "No somos solo operadores de cámara; somos los aliados visuales de tu negocio.",
       inv_tag: "Experiencia Exclusiva",
       inv_title: "Disponibilidad e Inversión",
       inv_desc: "Aceptamos un número limitado de producciones por año en Suiza, El Salvador y destinos internacionales para asegurar una dedicación cinematográfica artesanal.",
@@ -84,15 +92,19 @@ export class App implements OnInit, AfterViewInit {
       contact_whatsapp: "WhatsApp directo"
     },
     de: {
-      nav_home: "Startseite", nav_exp: "Portfolio", nav_about: "Meine Vision", nav_packs: "Investment", nav_contact: "Kontakt",
+      nav_home: "Startseite", nav_exp_bodas: "Erlebnis Hochzeiten", nav_exp_studio: "Erlebnis Studio", nav_about: "Meine Vision", nav_packs: "Investment", nav_contact: "Kontakt",
       hero_sub: "Hochzeitsvideografie & Commercial Studio", hero_tag: "Wo das Unsichtbare unvergesslich wird",
-      btn_bodas: "HOCHZEITEN", btn_studio: "STUDIO",
+      btn_bodas: "ERLEBNIS HOCHZEITEN", btn_studio: "ERLEBNIS STUDIO",
       exp_tag: "Ausgewählte Arbeiten",
       about_tag: "Meine Vision",
       about_title: "Jeder Film ist ein handgefertigtes Vermächtnis.",
       about_p1: "Manche sind temperamentvoll und voller Leben, andere ruhig und tiefgründig – so authentisch wie die Menschen, die ich filme.",
       about_p2: "Hinter der Kamera wird genauso viel gelacht wie davor – und genau das motiviert mich!",
       about_p3: "Denn du möchtest kein beliebiges Video, sondern eine echte filmische Geschichte deines grossen Tages.",
+      about_studio_title: "Deine Marke, auf einem neuen Level.",
+      about_studio_p1: "Hinter jeder filmischen Aufnahme und jedem Drohnenflug steht eine Partnerschaft.",
+      about_studio_p2: "Als Ehepaar und Geschäftspartner vereinen wir technische Präzision mit kreativer Regie, um sicherzustellen, dass deine Location auf dem Bildschirm genauso majestätisch wirkt wie im echten Leben.",
+      about_studio_p3: "Wir sind nicht nur Kameraleute; wir sind die visuellen Verbündeten deines Unternehmens.",
       inv_tag: "Exklusive Erfahrung",
       inv_title: "Verfügbarkeit & Investment",
       inv_desc: "Wir nehmen eine begrenzte Anzahl von Projekten pro Jahr in der Schweiz, in El Salvador und weltweit an, um höchste filmische Qualität zu garantieren.",
@@ -128,7 +140,7 @@ export class App implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
-      // Carga automáticamente en inglés ('en') si no hay selección previa
+      // Default asegurado en Inglés
       const initialLang = localStorage.getItem('lang') || 'en';
       this.changeLanguage(initialLang);
     }
