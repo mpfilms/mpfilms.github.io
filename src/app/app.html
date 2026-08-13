@@ -11,9 +11,9 @@
 
           <ng-container *ngIf="activeBranch !== 'none'">
             <a href="#experience" (click)="filterBranch('bodas')" data-i18n="nav_exp_bodas"
-              class="text-[10px] tracking-[0.4em] uppercase font-light hover:text-champagne transition">Exp Bodas</a>
+              class="text-[10px] tracking-[0.4em] uppercase font-light hover:text-champagne transition">Experience Bodas</a>
             <a href="#experience" (click)="filterBranch('studio')" data-i18n="nav_exp_studio"
-              class="text-[10px] tracking-[0.4em] uppercase font-light hover:text-champagne transition">Exp Studio</a>
+              class="text-[10px] tracking-[0.4em] uppercase font-light hover:text-champagne transition">Experience Studio</a>
             <a href="#about" data-i18n="nav_about"
               class="text-[10px] tracking-[0.4em] uppercase font-light hover:text-champagne transition">My Vision</a>
             <a href="#paquetes" data-i18n="nav_packs"
@@ -73,8 +73,8 @@
         <div class="mb-16 md:mb-24 text-center">
           <span data-i18n="exp_tag" class="text-champagne text-[10px] tracking-[0.5em] uppercase block mb-4">Selected Works</span>
           <h2 class="serif text-5xl md:text-8xl italic">
-            <span *ngIf="activeBranch === 'bodas'" data-i18n="nav_exp_bodas">Experience Weddings</span>
-            <span *ngIf="activeBranch === 'studio'" data-i18n="nav_exp_studio">Experience Studio</span>
+            <span *ngIf="activeBranch === 'bodas'" data-i18n="nav_exp_bodas">Wedding</span>
+            <span *ngIf="activeBranch === 'studio'" data-i18n="nav_exp_studio">Studio/Commercial</span>
           </h2>
         </div>
 
@@ -88,7 +88,7 @@
             </div>
             <div class="flex justify-between items-end border-b border-white/10 pb-4">
               <h3 class="serif text-2xl md:text-3xl italic">Trailer Tania & Robert</h3>
-              <span class="text-gray-500 text-[9px] md:text-[10px] tracking-widest uppercase">Destination Wedding</span>
+              <span class="text-gray-500 text-[9px] md:text-[10px] tracking-widest uppercase">San Salvador, El Salvador</span>
             </div>
           </div>
 
@@ -143,8 +143,8 @@
                 src="https://player.vimeo.com/video/1181098742" frameborder="0" allowfullscreen></iframe>
             </div>
             <div class="flex justify-between items-end border-b border-white/10 pb-4">
-              <h3 class="serif text-2xl md:text-3xl italic">Invierno en Sumiswald</h3>
-              <span class="text-gray-500 text-[9px] md:text-[10px] tracking-widest uppercase">Sumiswald, Schweiz</span>
+              <h3 class="serif text-2xl md:text-3xl italic">Sumiswald</h3>
+              <span class="text-gray-500 text-[9px] md:text-[10px] tracking-widest uppercase">Schweiz</span>
             </div>
           </div>
 
@@ -154,7 +154,7 @@
                 src="https://player.vimeo.com/video/1158086146" frameborder="0" allowfullscreen></iframe>
             </div>
             <div class="flex justify-between items-end border-b border-white/10 pb-4">
-              <h3 class="serif text-2xl md:text-3xl italic">Villa Wenkenhof (Commercial)</h3>
+              <h3 class="serif text-2xl md:text-3xl italic">Villa Wenkenhof</h3>
               <span class="text-gray-500 text-[9px] md:text-[10px] tracking-widest uppercase">Basel, Schweiz</span>
             </div>
           </div>
@@ -189,12 +189,12 @@
         <div class="relative group order-2 md:order-1">
           <div class="absolute -inset-4 border border-champagne/20 z-0"></div>
           <div class="relative z-10 aspect-[3/4] video-placeholder grayscale group-hover:grayscale-0 transition duration-1000">
-            <img src="assets/img/mpfilms-studio-gruender-videografie.jpg"
+            <img src="assets/img/mpfilms-studio-gruender-videografie.JPG"
               alt="MP Films Studio Founders" class="w-full h-full object-cover">
           </div>
         </div>
         <div class="space-y-6 md:space-y-10 order-1 md:order-2">
-          <span data-i18n="about_tag" class="text-champagne text-[10px] tracking-[0.5em] uppercase">My Vision</span>
+          <span data-i18n="about_studio_tag" class="text-champagne text-[10px] tracking-[0.5em] uppercase">Our Vision</span>
           <h2 data-i18n="about_studio_title" class="serif text-4xl md:text-6xl leading-tight italic">Your Brand, Elevated.</h2>
           <div class="h-[1px] w-20 bg-champagne"></div>
           <div class="text-gray-600 font-light leading-relaxed space-y-4 md:space-y-6 text-base md:text-lg">
@@ -220,7 +220,7 @@
 
         <p data-i18n="inv_desc"
           class="text-gray-600 font-light text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-          We accept a limited number of commissions per year across Switzerland and worldwide to guarantee handcrafted
+          We accept a limited number of commissions per year across Switzerland, El Salvador and worldwide to guarantee handcrafted
           cinematic dedication.
         </p>
 
@@ -246,8 +246,8 @@
           <select name="historia" required
             class="bg-transparent w-full py-2 text-gray-400 focus:outline-none focus:border-champagne transition text-[10px] tracking-widest uppercase cursor-pointer">
             <option value="" disabled selected data-i18n="form_select_placeholder">WHICH STORY ARE WE TELLING?</option>
-            <option value="boda" class="bg-black text-white" data-i18n="form_opt_boda">MY WEDDING (LEGACY)</option>
-            <option value="studio" class="bg-black text-white" data-i18n="form_opt_studio">MY BUSINESS (COMMERCIAL)</option>
+            <option value="boda" class="bg-black text-white" data-i18n="form_opt_boda">MY WEDDING</option>
+            <option value="studio" class="bg-black text-white" data-i18n="form_opt_studio">MY BUSINESS</option>
           </select>
         </div>
 

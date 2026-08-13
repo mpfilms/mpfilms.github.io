@@ -15,6 +15,7 @@ export interface PageTexts {
     about_p1: string;
     about_p2: string;
     about_p3: string;
+    about_studio_tag: string;
     about_studio_title: string;
     about_studio_p1: string;
     about_studio_p2: string;
