@@ -1,87 +1,191 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
 
-@import "tailwindcss";
+/* Self-hosted brand fonts (no Google Fonts CDN) */
+@font-face {
+  font-family: 'Jost';
+  src: url('/fonts/jost.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Jost';
+  src: url('/fonts/jost-italic.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/playfair-display.ttf') format('truetype');
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/playfair-display-italic.ttf') format('truetype');
+  font-weight: 400 900;
+  font-style: italic;
+  font-display: swap;
+}
 
+/* Brand palette. Replace the hex values with the exact logo colours when available. */
+@theme {
+  --color-cream: #f6f1e9;
+  --color-sand: #ede5d8;
+  --color-ink: #141414;
+  --color-stone: #5f5a54;
+  --color-gold: #b4935a;
+  --color-cloud: #7e9bb5;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Jost', system-ui, sans-serif;
+}
+
+/* Accent: Cloud Blue for Studio, Gold for Weddings */
 :root {
-    --ivory: #F9F8F4;
-    --champagne: #C5A059;
-    --dark: #1a1a1a;
+  --accent: var(--color-cloud);
+}
+[data-world='weddings'] {
+  --accent: var(--color-gold);
 }
 
+html {
+  scroll-behavior: smooth;
+}
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--ivory);
-    color: var(--dark);
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
-.serif {
-    font-family: 'Playfair Display', serif;
+.text-accent {
+  color: var(--accent);
+}
+.bg-accent {
+  background-color: var(--accent);
+}
+.border-accent {
+  border-color: var(--accent);
+}
+.hover-accent {
+  transition: color 0.3s ease;
+}
+.hover-accent:hover {
+  color: var(--accent);
 }
 
-.text-champagne {
-    color: var(--champagne);
+.btn-dark,
+.btn-light,
+.btn-line,
+.btn-line-light {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  border: 1px solid;
+  transition: all 0.4s ease;
+}
+.btn-dark {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  border-color: var(--color-ink);
+}
+.btn-dark:hover {
+  background: transparent;
+  color: var(--color-ink);
+}
+.btn-light {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  border-color: var(--color-cream);
+}
+.btn-light:hover {
+  background: transparent;
+  color: var(--color-cream);
+}
+.btn-line {
+  border-color: currentColor;
+}
+.btn-line:hover {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  border-color: var(--color-ink);
+}
+.btn-line-light {
+  color: var(--color-cream);
+  border-color: rgb(246 241 233 / 0.6);
+}
+.btn-line-light:hover {
+  background: var(--color-cream);
+  color: var(--color-ink);
 }
 
-.bg-champagne {
-    background-color: var(--champagne);
+.link-underline {
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 4px;
+}
+.footer-title {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgb(246 241 233 / 0.5);
+  margin-bottom: 1rem;
 }
 
-.texture {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    opacity: 0.03;
-    z-index: 5;
-    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+/* Forms */
+.field {
+  display: grid;
+  gap: 0.5rem;
+}
+.field > span,
+.field > legend {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+}
+.field input:not([type='radio']),
+.field select,
+.field textarea {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgb(20 20 20 / 0.2);
+  padding: 0.75rem 0;
+  font-size: 1rem;
+  outline: none;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-bottom-color: var(--accent);
 }
 
-.nav-glass {
-    background-color: rgba(249, 248, 244, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+/* Legal */
+.legal-row {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: 1.5rem;
+  padding: 1.25rem 0;
 }
-
-.lang-btn {
-    cursor: pointer;
-    transition: all 0.3s ease;
-    opacity: 0.4;
-    letter-spacing: 0.1em;
+.legal-row dt {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+  padding-top: 0.2rem;
 }
-
-.lang-btn.active {
-    opacity: 1;
-    color: var(--champagne);
-    font-weight: 500;
-}
-
-.fade-in {
-    opacity: 0;
-    animation: fadeIn ease 2.5s forwards;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.video-placeholder {
-    background-color: #000;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Cookie Banner State */
-#cookie-banner.hidden {
-    display: none;
+@media (max-width: 640px) {
+  .legal-row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
 }
