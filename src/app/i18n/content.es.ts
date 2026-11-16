@@ -233,7 +233,7 @@ export const ES: Content = {
     testimonial: {
       quote:
         'De verdad, gracias por el trabajo tan increíble que hicieron con nuestro video de boda. Lograron capturar la esencia de lo que somos, de nuestro amor y de todo lo que vivimos ese día de una manera que no cualquiera puede hacer. Sabemos que, aunque pasen los años, cada vez que lo volvamos a ver vamos a sentir que estamos viviendo ese día otra vez.',
-      author: 'T., boda en San Salvador',
+      author: 'Tania & Robert, boda en San Salvador',
       note: '',
     },
     packagesTitle: 'Paquetes de boda',

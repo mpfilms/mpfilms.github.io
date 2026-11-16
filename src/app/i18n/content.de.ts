@@ -234,7 +234,7 @@ export const DE: Content = {
     testimonial: {
       quote:
         'Wirklich, danke für die unglaubliche Arbeit an unserem Hochzeitsvideo. Ihr habt eingefangen, wer wir sind, unsere Liebe und alles, was wir an diesem Tag erlebt haben, so wie es nicht jeder kann. Jedes Mal, wenn wir es wieder anschauen, werden wir das Gefühl haben, diesen Tag noch einmal zu erleben.',
-      author: 'T., Hochzeit in San Salvador',
+      author: 'Tania & Robert, Hochzeit in San Salvador',
       note: 'Aus dem Spanischen übersetzt',
     },
     packagesTitle: 'Hochzeitspakete',

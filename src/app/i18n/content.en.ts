@@ -231,7 +231,7 @@ export const EN = {
     testimonial: {
       quote:
         'Truly, thank you for the incredible work you did with our wedding video. You captured the essence of who we are, of our love and of everything we lived that day, in a way not just anyone can. Every time we watch it again, we will feel like we are living that day once more.',
-      author: 'T., wedding in San Salvador',
+      author: 'Tania & Robert, wedding in San Salvador',
       note: 'Translated from Spanish',
     },
     packagesTitle: 'Wedding packages',
