@@ -6,13 +6,14 @@ import { Film } from '../i18n/pages';
   selector: 'app-vimeo',
   template: `
     <figure>
-      <div class="aspect-video bg-ink overflow-hidden">
-        <iframe [src]="src()" [title]="film().title" loading="lazy" class="h-full w-full"
+      <div class="aspect-video bg-ink overflow-hidden flex justify-center">
+        <iframe [src]="src()" [title]="film().title" loading="lazy"
+                [class]="film().vertical ? 'h-full aspect-[9/16]' : 'h-full w-full'"
                 allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
       </div>
       <figcaption class="mt-4 flex items-end justify-between gap-4 border-b border-current/15 pb-3">
         <span class="font-serif text-2xl">{{ film().title }}</span>
-        <span class="text-[11px] tracking-[0.2em] uppercase opacity-60 text-right">{{ label() }} · {{ film().place }}</span>
+        <span class="text-[11px] tracking-[0.2em] uppercase opacity-60 text-right">{{ film().vertical ? 'Reel' : label() }} · {{ film().place }}</span>
       </figcaption>
     </figure>
   `,

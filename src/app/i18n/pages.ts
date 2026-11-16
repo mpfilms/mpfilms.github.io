@@ -104,11 +104,13 @@ export interface Film {
   title: string;
   place: string;
   kind: 'brand' | 'wedding' | 'session';
+  /** Vertical (9:16) Reel instead of a 16:9 film */
+  vertical?: boolean;
 }
 
 export const STUDIO_FILMS: Film[] = [
   { id: '1158086146', title: 'Villa Wenkenhof', place: 'Riehen, Basel-Stadt', kind: 'brand' },
-  { id: '1246572696', title: 'Zahnarzt Burger', place: 'Basel', kind: 'brand' },
+  { id: '1246572696', title: 'Zahnarzt Burger', place: 'Basel', kind: 'brand', vertical: true },
   { id: '1181095614', title: 'Kuttelbad', place: 'Wasen im Emmental', kind: 'brand' },
   { id: '1181098742', title: 'Sumiswald', place: 'Emmental', kind: 'brand' },
 ];
