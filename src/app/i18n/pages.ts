@@ -108,12 +108,13 @@ export interface Film {
 
 export const STUDIO_FILMS: Film[] = [
   { id: '1158086146', title: 'Villa Wenkenhof', place: 'Riehen, Basel-Stadt', kind: 'brand' },
+  { id: '1246572696', title: 'Zahnarzt Burger', place: 'Basel', kind: 'brand' },
   { id: '1181095614', title: 'Kuttelbad', place: 'Wasen im Emmental', kind: 'brand' },
   { id: '1181098742', title: 'Sumiswald', place: 'Emmental', kind: 'brand' },
 ];
 
 export const WEDDING_FILMS: Film[] = [
-  { id: '1217383696', title: 'Tania & Robert', place: 'San Salvador, El Salvador', kind: 'wedding' },
+  { id: '1240146664', title: 'Tania & Robert', place: 'San Salvador, El Salvador', kind: 'wedding' },
   { id: '1159548288', title: 'Raul & Tati', place: 'San Salvador, El Salvador', kind: 'wedding' },
   { id: '1163197861', title: 'Margarita & Rafa', place: 'Basel', kind: 'session' },
   { id: '1158072046', title: 'Ädu & Sheila', place: 'Huttwil', kind: 'session' },
