@@ -43,3 +43,6 @@ __screenshots__/
 .DS_Store
 Thumbs.db
 node_modules
+
+# Original 4K hero footage (too large for git); web versions live next to it
+/public/assets/video/source/

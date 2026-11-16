@@ -1,17 +1,17 @@
 /**
- * Hero media. Put your own clips in public/assets/video/ and set `video`,
- * e.g. '/assets/video/hero-studio.mp4'. While `video` is empty, the poster photo is shown.
+ * Hero media. Web versions are generated from the originals in public/assets/video/source/
+ * (1920 px, no audio, H.264). Leave `video` empty to fall back to the poster photo.
  */
 export const MEDIA = {
   studio: {
-    video: '',
-    poster: '/assets/img/miguel-arauz-videograf-basel.webp',
-    alt: 'Miguel Arauz, MP Films',
+    video: '/assets/video/hero-studio.mp4',
+    poster: '/assets/img/hero-studio-poster.webp',
+    alt: 'Villa Wenkenhof, Riehen – brand film by MP Films',
   },
   weddings: {
-    video: '',
-    poster: '/assets/img/miguel-pamina-mp-films-basel.webp',
-    alt: 'Miguel & Pamina, MP Films',
+    video: '/assets/video/hero-weddings.mp4',
+    poster: '/assets/img/hero-weddings-poster.webp',
+    alt: 'Wedding film by MP Films',
   },
   duo: '/assets/img/miguel-pamina-mp-films-basel.webp',
 };
