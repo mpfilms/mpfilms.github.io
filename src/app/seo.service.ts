@@ -106,7 +106,7 @@ function business(): Json {
     image: OG_IMAGE,
     email: CONTACT.email,
     telephone: '+41789084993',
-    priceRange: 'CHF 690 – CHF 5,400',
+    priceRange: 'CHF 490 – CHF 5,400',
     address: {
       '@type': 'PostalAddress',
       streetAddress: CONTACT.street,

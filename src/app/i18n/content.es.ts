@@ -44,7 +44,7 @@ export const ES: Content = {
     packages: {
       title: 'Videos para redes sociales en Basilea | MP Films',
       description:
-        'Paquetes mensuales de video para redes sociales en Basilea y Berna: Reels estratégicos, fotos y tomas aéreas. Desde 1.250 CHF al mes. Sesión piloto 690 CHF.',
+        'Paquetes mensuales de video para redes sociales en Basilea y Berna: Reels estratégicos, fotos y tomas aéreas. Desde 1.250 CHF al mes. Paquetes individuales desde 490 CHF.',
     },
     work: {
       title: 'Proyectos | MP Films, producción de video en Suiza',
@@ -104,7 +104,7 @@ export const ES: Content = {
     workTitle: 'Proyectos seleccionados',
     packagesTitle: 'Paquetes mensuales desde 1.250 CHF',
     packagesText:
-      'La presencia constante es lo que premia el algoritmo. Elige un paquete mensual o empieza con una sesión piloto.',
+      'La presencia constante es lo que premia el algoritmo. Elige un paquete mensual o empieza con un paquete individual.',
     aboutTitle: 'Precisión suiza. Alma latina.',
     aboutText:
       'Miguel creció en El Salvador y Pamina en Suiza. Él dirige y filma. Ella produce y se asegura de que cada detalle llegue a tiempo.',
@@ -142,15 +142,28 @@ export const ES: Content = {
         ],
       },
     ],
-    pilot: {
-      name: 'Sesión piloto',
-      price: '690 CHF',
-      items: ['1 Reel estratégico', '5 a 8 fotos editadas', '1 sesión de grabación en tu negocio'],
-      note: 'Se descuenta íntegra de tu primer mes si sigues con un paquete.',
+    singles: {
+      title: 'Paquetes individuales',
+      intro:
+        'Un Reel para conocer cómo trabajamos, o una película corta que presenta tu negocio en tu web y en redes sociales.',
+      items: [
+        {
+          name: 'Sesión Reel',
+          price: '490 CHF',
+          items: ['1 Reel estratégico, hasta 45 segundos', '4 fotos editadas', '1 sesión de grabación de hasta 1,5h'],
+          note: 'Se acredita íntegra a tu primer mes si sigues con un paquete mensual.',
+        },
+        {
+          name: 'Película corta',
+          price: '1.490 CHF',
+          items: ['1 película de 60 a 90 segundos', '7 fotos editadas', '1 sesión de grabación de hasta 3h'],
+          note: 'Para tu web, redes sociales y presentaciones.',
+        },
+      ],
     },
     processTitle: 'Cómo empezamos',
     steps: [
-      { title: 'Elegir', text: 'Eliges un paquete mensual o empiezas con la sesión piloto.' },
+      { title: 'Elegir', text: 'Eliges un paquete mensual o empiezas con un paquete individual.' },
       {
         title: 'Planificar',
         text: 'Una llamada corta para definir la primera grabación, las locaciones y los mensajes clave.',
@@ -164,7 +177,7 @@ export const ES: Content = {
     faq: [
       {
         q: '¿Podemos empezar con un solo video?',
-        a: 'Sí. La sesión piloto incluye un Reel estratégico y de 5 a 8 fotos por 690 CHF. Si sigues con un paquete mensual, el importe completo se descuenta de tu primer mes.',
+        a: 'Sí. La sesión Reel incluye un Reel estratégico y 4 fotos por 490 CHF. Si después sigues con un paquete mensual, el importe completo se acredita a tu primer mes. Para una película de 60 a 90 segundos está la película corta por 1.490 CHF.',
       },
       {
         q: '¿Filman con dron?',
@@ -336,7 +349,8 @@ export const ES: Content = {
     },
     budgetStudioLabel: 'Studio',
     budgetStudio: [
-      'Sesión piloto · 690 CHF',
+      'Sesión Reel · 490 CHF',
+      'Película corta · 1.490 CHF',
       'Presencia · 1.250 CHF / mes',
       'Crecimiento · 1.850 CHF / mes',
       'Dominio · 2.700 CHF / mes',

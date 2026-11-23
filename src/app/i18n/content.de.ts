@@ -44,7 +44,7 @@ export const DE: Content = {
     packages: {
       title: 'Social-Media-Videoproduktion Basel | MP Films',
       description:
-        'Monatliche Social-Media-Videopakete für Unternehmen in Basel und Bern: strategische Reels, Fotos und Drohnenaufnahmen. Ab CHF 1’250. Pilot-Session CHF 690.',
+        'Monatliche Social-Media-Videopakete für Unternehmen in Basel und Bern: strategische Reels, Fotos und Drohnenaufnahmen. Ab CHF 1’250 pro Monat. Einzelpakete ab CHF 490.',
     },
     work: {
       title: 'Projekte | MP Films Videoproduktion Schweiz',
@@ -104,7 +104,7 @@ export const DE: Content = {
     workTitle: 'Ausgewählte Projekte',
     packagesTitle: 'Monatspakete ab CHF 1’250',
     packagesText:
-      'Konstante Präsenz ist das, was der Algorithmus belohnt. Wählen Sie ein Monatspaket oder starten Sie mit einer Pilot-Session.',
+      'Konstante Präsenz ist das, was der Algorithmus belohnt. Wählen Sie ein Monatspaket oder starten Sie mit einem Einzelpaket.',
     aboutTitle: 'Schweizer Präzision. Lateinamerikanisches Herz.',
     aboutText:
       'Miguel ist in El Salvador aufgewachsen, Pamina in der Schweiz. Er führt Regie und Kamera. Sie produziert und sorgt dafür, dass jedes Detail im Zeitplan bleibt.',
@@ -142,15 +142,28 @@ export const DE: Content = {
         ],
       },
     ],
-    pilot: {
-      name: 'Pilot-Session',
-      price: 'CHF 690',
-      items: ['1 strategisches Reel', '5 bis 8 bearbeitete Fotos', '1 Aufnahmesession vor Ort'],
-      note: 'Wird vollständig an Ihren ersten Monat angerechnet, wenn Sie mit einem Paket weitermachen.',
+    singles: {
+      title: 'Einzelpakete',
+      intro:
+        'Ein Reel, um unsere Arbeitsweise kennenzulernen, oder ein kurzer Film, der Ihr Unternehmen auf Website und Social Media vorstellt.',
+      items: [
+        {
+          name: 'Reel-Session',
+          price: 'CHF 490',
+          items: ['1 strategisches Reel, bis 45 Sekunden', '4 bearbeitete Fotos', '1 Aufnahmesession bis 1,5h'],
+          note: 'Wird vollständig an Ihren ersten Monat angerechnet, wenn Sie mit einem Monatspaket weitermachen.',
+        },
+        {
+          name: 'Kurzfilm',
+          price: 'CHF 1’490',
+          items: ['1 Film, 60 bis 90 Sekunden', '7 bearbeitete Fotos', '1 Aufnahmesession bis 3h'],
+          note: 'Für Website, Social Media und Präsentationen.',
+        },
+      ],
     },
     processTitle: 'So starten wir',
     steps: [
-      { title: 'Auswahl', text: 'Sie wählen ein Monatspaket oder starten mit der Pilot-Session.' },
+      { title: 'Auswahl', text: 'Sie wählen ein Monatspaket oder starten mit einem Einzelpaket.' },
       {
         title: 'Planung',
         text: 'Ein kurzes Gespräch, um die erste Aufnahme, die Locations und die Kernbotschaften festzulegen.',
@@ -164,7 +177,7 @@ export const DE: Content = {
     faq: [
       {
         q: 'Können wir mit einem einzelnen Video starten?',
-        a: 'Ja. Die Pilot-Session umfasst ein strategisches Reel und 5 bis 8 Fotos für CHF 690. Wenn Sie mit einem Monatspaket weitermachen, wird der volle Betrag an den ersten Monat angerechnet.',
+        a: 'Ja. Die Reel-Session umfasst ein strategisches Reel und 4 Fotos für CHF 490. Wenn Sie danach mit einem Monatspaket weitermachen, wird der volle Betrag an den ersten Monat angerechnet. Für einen Film von 60 bis 90 Sekunden gibt es den Kurzfilm für CHF 1’490.',
       },
       {
         q: 'Filmen Sie mit einer Drohne?',
@@ -337,7 +350,8 @@ export const DE: Content = {
     },
     budgetStudioLabel: 'Studio',
     budgetStudio: [
-      'Pilot-Session · CHF 690',
+      'Reel-Session · CHF 490',
+      'Kurzfilm · CHF 1’490',
       'Präsenz · CHF 1’250 / Monat',
       'Wachstum · CHF 1’850 / Monat',
       'Dominanz · CHF 2’700 / Monat',

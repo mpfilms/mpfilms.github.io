@@ -42,7 +42,7 @@ export const EN = {
     packages: {
       title: 'Social Media Video Plans in Basel | MP Films',
       description:
-        'Monthly social media video plans for businesses in Basel and Bern: strategic Reels, photos and aerial footage. From CHF 1,250 per month. Pilot session CHF 690.',
+        'Monthly social media video plans for businesses in Basel and Bern: strategic Reels, photos and aerial footage. From CHF 1,250 per month. Single packages from CHF 490.',
     },
     work: {
       title: 'Projects | MP Films Video Production Switzerland',
@@ -102,7 +102,7 @@ export const EN = {
     workTitle: 'Selected work',
     packagesTitle: 'Monthly plans from CHF 1,250',
     packagesText:
-      'Consistent presence is what the algorithm rewards. Choose a monthly plan, or start with a pilot session.',
+      'Consistent presence is what the algorithm rewards. Choose a monthly plan, or start with a single package.',
     aboutTitle: 'Swiss precision. Latin soul.',
     aboutText:
       'Miguel grew up in El Salvador, Pamina in Switzerland. He directs and films. She produces and keeps every detail on schedule.',
@@ -140,15 +140,28 @@ export const EN = {
         ],
       },
     ],
-    pilot: {
-      name: 'Pilot session',
-      price: 'CHF 690',
-      items: ['1 strategic Reel', '5 to 8 edited photos', '1 shooting session on location'],
-      note: 'Fully credited to your first month if you continue with a plan.',
+    singles: {
+      title: 'Single packages',
+      intro:
+        'One Reel to get to know how we work, or a short film that introduces your business on your website and social media.',
+      items: [
+        {
+          name: 'Reel session',
+          price: 'CHF 490',
+          items: ['1 strategic Reel, up to 45 seconds', '4 edited photos', '1 shooting session up to 1.5h'],
+          note: 'Fully credited to your first month if you continue with a monthly plan.',
+        },
+        {
+          name: 'Short film',
+          price: 'CHF 1,490',
+          items: ['1 film, 60 to 90 seconds', '7 edited photos', '1 shooting session up to 3h'],
+          note: 'For your website, social media and presentations.',
+        },
+      ],
     },
     processTitle: 'How we start',
     steps: [
-      { title: 'Choose', text: 'Pick a monthly plan or start with the pilot session.' },
+      { title: 'Choose', text: 'Pick a monthly plan or start with a single package.' },
       {
         title: 'Plan',
         text: 'A short call to define the first shoot, the locations and the key messages.',
@@ -162,7 +175,7 @@ export const EN = {
     faq: [
       {
         q: 'Can we start with a single video?',
-        a: 'Yes. The pilot session includes one strategic Reel and 5 to 8 photos for CHF 690. If you continue with a monthly plan, the full amount is credited to your first month.',
+        a: 'Yes. The Reel session includes one strategic Reel and 4 photos for CHF 490. If you continue with a monthly plan afterwards, the full amount is credited to your first month. For a 60 to 90 second film, choose the short film for CHF 1,490.',
       },
       {
         q: 'Do you film with a drone?',
@@ -334,7 +347,8 @@ export const EN = {
     },
     budgetStudioLabel: 'Studio',
     budgetStudio: [
-      'Pilot session · CHF 690',
+      'Reel session · CHF 490',
+      'Short film · CHF 1,490',
       'Presence · CHF 1,250 / month',
       'Growth · CHF 1,850 / month',
       'Dominance · CHF 2,700 / month',

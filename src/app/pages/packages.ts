@@ -24,21 +24,23 @@ import { faqLd, serviceLd } from '../seo.service';
         }
       </section>
 
-      <section class="mx-auto max-w-6xl px-6 mt-6">
-        <div class="bg-ink text-cream p-8 md:p-12 grid gap-8 md:grid-cols-[1fr_1fr_auto] md:items-center">
-          <div>
-            <h2 class="font-serif text-3xl">{{ t.packages.pilot.name }}</h2>
-            <p class="mt-2 text-2xl">{{ t.packages.pilot.price }}</p>
-          </div>
-          <div>
-            <ul class="space-y-2">
-              @for (item of t.packages.pilot.items; track item) {
-                <li class="flex gap-3"><span class="text-accent">—</span>{{ item }}</li>
-              }
-            </ul>
-            <p class="mt-4 text-sm text-cream/70">{{ t.packages.pilot.note }}</p>
-          </div>
-          <a [routerLink]="link('contact')" class="btn-light">{{ t.common.requestProposal }}</a>
+      <section class="mx-auto max-w-6xl px-6 pt-20">
+        <h2 class="font-serif text-4xl">{{ t.packages.singles.title }}</h2>
+        <p class="mt-4 max-w-2xl text-stone">{{ t.packages.singles.intro }}</p>
+        <div class="mt-10 grid gap-6 md:grid-cols-2">
+          @for (single of t.packages.singles.items; track single.name) {
+            <div class="bg-ink text-cream p-8 md:p-10 flex flex-col">
+              <h3 class="font-serif text-3xl">{{ single.name }}</h3>
+              <p class="mt-2 text-2xl">{{ single.price }}</p>
+              <ul class="mt-6 space-y-2">
+                @for (item of single.items; track item) {
+                  <li class="flex gap-3"><span class="text-accent">—</span>{{ item }}</li>
+                }
+              </ul>
+              <p class="mt-4 mb-8 text-sm text-cream/70">{{ single.note }}</p>
+              <a [routerLink]="link('contact')" class="btn-light mt-auto self-start">{{ t.common.requestProposal }}</a>
+            </div>
+          }
         </div>
       </section>
 
@@ -73,7 +75,7 @@ export class PackagesPage extends PageBase {
           price: [1250, 1850, 2700][i],
           perMonth: true,
         })),
-        { name: this.t.packages.pilot.name, price: 690 },
+        ...this.t.packages.singles.items.map((s, i) => ({ name: s.name, price: [490, 1490][i] })),
       ]),
       faqLd(url, this.t.packages.faq),
     ]);
