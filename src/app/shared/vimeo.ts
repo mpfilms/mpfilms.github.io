@@ -5,10 +5,10 @@ import { Film } from '../i18n/pages';
 @Component({
   selector: 'app-vimeo',
   template: `
-    <figure>
-      <!-- Vertical Reels get their own 9:16 frame (as wide as the column, at most 80% of the screen height) -->
-      <div class="bg-ink overflow-hidden"
-           [class]="film().vertical ? 'mx-auto w-full max-w-[calc(80svh*9/16)] aspect-[9/16]' : 'aspect-video'">
+    <!-- Vertical Reels get their own 9:16 frame (as wide as the column, at most 80% of the screen height);
+         the caption takes the same width as the video -->
+    <figure [class]="film().vertical ? 'mx-auto w-full max-w-[calc(80svh*9/16)]' : ''">
+      <div class="bg-ink overflow-hidden" [class]="film().vertical ? 'aspect-[9/16]' : 'aspect-video'">
         <iframe [src]="src()" [title]="film().title" loading="lazy" class="h-full w-full"
                 allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
       </div>

@@ -108,11 +108,15 @@ export interface Film {
   vertical?: boolean;
 }
 
+/**
+ * Order matters: the grid shows two films per row, so keep same formats in pairs
+ * (16:9 next to 16:9, Reel next to Reel). The home page shows the first two.
+ */
 export const STUDIO_FILMS: Film[] = [
   { id: '1158086146', title: 'Villa Wenkenhof', place: 'Riehen, Basel-Stadt', kind: 'brand' },
-  { id: '1246572696', title: 'Zahnarzt Burger', place: 'Basel', kind: 'brand', vertical: true },
-  { id: '1181095614', title: 'Kuttelbad', place: 'Wasen im Emmental', kind: 'brand' },
   { id: '1181098742', title: 'Sumiswald', place: 'Emmental', kind: 'brand' },
+  { id: '1246572696', title: 'Zahnarzt Burger', place: 'Basel', kind: 'brand', vertical: true },
+  { id: '1240148049', title: 'Herbolaria Hotel', place: 'El Salvador', kind: 'brand', vertical: true },
 ];
 
 export const WEDDING_FILMS: Film[] = [
