@@ -3,10 +3,11 @@ import { CONTACT } from '../i18n/pages';
 import { Intro } from '../shared/intro';
 import { Layout } from '../shared/layout';
 import { PageBase } from '../shared/page-base';
+import { SocialIcon } from '../shared/social-icon';
 
 @Component({
   selector: 'app-contact-page',
-  imports: [Layout, Intro],
+  imports: [Layout, Intro, SocialIcon],
   template: `
     <app-layout [lang]="lang" [page]="'contact'">
       <app-intro [eyebrow]="t.contact.eyebrow" [title]="t.contact.h1" [lead]="t.contact.lead" />
@@ -94,7 +95,7 @@ import { PageBase } from '../shared/page-base';
 
         <aside class="space-y-6">
           <p class="text-[11px] tracking-[0.3em] uppercase text-stone">{{ t.contact.directTitle }}</p>
-          <a [href]="contact.whatsapp" target="_blank" rel="noopener" class="btn-line block text-center">{{ t.common.whatsapp }}</a>
+          <a [href]="contact.whatsapp" target="_blank" rel="noopener" class="btn-line w-full gap-3"><app-social-icon name="whatsapp" />{{ t.common.whatsapp }}</a>
           <ul class="space-y-2 text-lg">
             <li><a [href]="'mailto:' + contact.email" class="link-underline">{{ contact.email }}</a></li>
             <li><a [href]="contact.phoneHref">{{ contact.phone }}</a></li>

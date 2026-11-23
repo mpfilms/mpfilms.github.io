@@ -1,5 +1,6 @@
 import { Component, computed, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { SocialIcon } from './social-icon';
 import { CONTENT } from '../i18n/content';
 import { CONTACT, HREFLANG, LANGS, Lang, PageKey, pagePath, worldOf } from '../i18n/pages';
 
@@ -10,7 +11,7 @@ interface NavItem {
 
 @Component({
   selector: 'app-layout',
-  imports: [RouterLink],
+  imports: [RouterLink, SocialIcon],
   host: { '[attr.data-world]': 'world()', class: 'block' },
   template: `
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:p-3 focus:bg-cream">Skip</a>
@@ -78,10 +79,10 @@ interface NavItem {
           <ul class="space-y-0.5 text-sm [&_a]:inline-block [&_a]:py-1.5">
             <li><a [href]="'mailto:' + contact.email">{{ contact.email }}</a></li>
             <li><a [href]="contact.phoneHref">{{ contact.phone }}</a></li>
-            <li><a [href]="contact.whatsapp" rel="noopener" target="_blank">WhatsApp</a></li>
-            <li><a [href]="contact.instagramStudio" rel="noopener" target="_blank">Instagram Studio</a></li>
-            <li><a [href]="contact.instagramWeddings" rel="noopener" target="_blank">Instagram {{ t().nav.weddings }}</a></li>
-            <li><a [href]="contact.vimeo" rel="noopener" target="_blank">Vimeo</a></li>
+            <li><a [href]="contact.whatsapp" rel="noopener" target="_blank" class="items-center gap-2.5 !inline-flex"><app-social-icon name="whatsapp" />WhatsApp</a></li>
+            <li><a [href]="contact.instagramStudio" rel="noopener" target="_blank" class="items-center gap-2.5 !inline-flex"><app-social-icon name="instagram" />Instagram Studio</a></li>
+            <li><a [href]="contact.instagramWeddings" rel="noopener" target="_blank" class="items-center gap-2.5 !inline-flex"><app-social-icon name="instagram" />Instagram {{ t().nav.weddings }}</a></li>
+            <li><a [href]="contact.vimeo" rel="noopener" target="_blank" class="items-center gap-2.5 !inline-flex"><app-social-icon name="vimeo" />Vimeo</a></li>
           </ul>
         </div>
       </div>
