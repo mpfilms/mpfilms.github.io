@@ -189,3 +189,24 @@ body {
     gap: 0.25rem;
   }
 }
+
+/* Long German words ("Datenschutzerklärung", "Videoproduktion") must never run off narrow
+   screens. The browser hyphenates by the <html lang> set in SeoService; anywhere is the fallback. */
+h1,
+h2,
+h3,
+dd {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 1023px) {
+  h1,
+  h1 > span,
+  h2,
+  dd {
+    hyphens: auto;
+    /* Only split long words (14+ letters, at least 6 on each side) */
+    hyphenate-limit-chars: 14 6 6;
+    -webkit-hyphenate-limit-before: 6;
+    -webkit-hyphenate-limit-after: 6;
+  }
+}

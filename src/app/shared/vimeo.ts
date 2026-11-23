@@ -6,9 +6,10 @@ import { Film } from '../i18n/pages';
   selector: 'app-vimeo',
   template: `
     <figure>
-      <div class="aspect-video bg-ink overflow-hidden flex justify-center">
-        <iframe [src]="src()" [title]="film().title" loading="lazy"
-                [class]="film().vertical ? 'h-full aspect-[9/16]' : 'h-full w-full'"
+      <!-- Vertical Reels get their own 9:16 frame (as wide as the column, at most 80% of the screen height) -->
+      <div class="bg-ink overflow-hidden"
+           [class]="film().vertical ? 'mx-auto w-full max-w-[calc(80svh*9/16)] aspect-[9/16]' : 'aspect-video'">
+        <iframe [src]="src()" [title]="film().title" loading="lazy" class="h-full w-full"
                 allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
       </div>
       <figcaption class="mt-4 flex items-end justify-between gap-4 border-b border-current/15 pb-3">
